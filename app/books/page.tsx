@@ -79,6 +79,12 @@ export default function BooksPage() {
                 </span>
                 <span className="text-yellow-600">★ {book.rating}</span>
               </div>
+              <Link
+                href={`/books/${book.id}`}
+                className="mt-3 inline-block text-sm text-blue-600 hover:underline"
+              >
+                View Details →
+              </Link>
             </div>
           ))}
         </div>
