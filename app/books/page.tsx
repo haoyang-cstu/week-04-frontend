@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 interface Book {
   id: number;
@@ -52,7 +53,15 @@ export default function BooksPage() {
 
   return (
     <main className="p-8">
-      <h1 className="mb-6 text-2xl font-bold">Books</h1>
+      <div className="mb-6 flex items-center justify-between">
+        <h1 className="text-2xl font-bold">Books</h1>
+        <Link
+          href="/books/new"
+          className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700"
+        >
+          + Add a Book
+        </Link>
+      </div>
       {books.length === 0 ? (
         <p className="text-gray-500">No books yet.</p>
       ) : (
