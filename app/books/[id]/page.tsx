@@ -9,7 +9,7 @@ interface Book {
   title: string;
   author: string;
   status: string;
-  rating: number;
+  rating: number | null;
 }
 
 export default function BookDetailPage({
@@ -115,7 +115,9 @@ export default function BookDetailPage({
           <span className="rounded-full bg-gray-100 px-2 py-1 text-gray-700">
             {book.status}
           </span>
-          <span className="text-yellow-600">★ {book.rating}</span>
+          <span className="text-yellow-600">
+            {book.rating != null ? `★ ${book.rating}` : "Unrated"}
+          </span>
         </div>
 
         <div className="mt-6 flex gap-3">

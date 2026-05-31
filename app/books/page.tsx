@@ -8,7 +8,7 @@ interface Book {
   title: string;
   author: string;
   status: string;
-  rating: number;
+  rating: number | null;
 }
 
 export default function BooksPage() {
@@ -63,7 +63,15 @@ export default function BooksPage() {
         </Link>
       </div>
       {books.length === 0 ? (
-        <p className="text-gray-500">No books yet.</p>
+        <div className="text-gray-500">
+          <p>No books yet.</p>
+          <Link
+            href="/books/new"
+            className="mt-2 inline-block text-blue-600 hover:underline"
+          >
+            Add your first book →
+          </Link>
+        </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {books.map((book) => (
@@ -77,7 +85,9 @@ export default function BooksPage() {
                 <span className="rounded-full bg-gray-100 px-2 py-1 text-gray-700">
                   {book.status}
                 </span>
-                <span className="text-yellow-600">★ {book.rating}</span>
+                <span className="text-yellow-600">
+                  {book.rating != null ? `★ ${book.rating}` : "Unrated"}
+                </span>
               </div>
               <Link
                 href={`/books/${book.id}`}
