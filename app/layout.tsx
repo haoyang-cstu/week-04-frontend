@@ -46,6 +46,11 @@ export default function RootLayout({
                 Add Book
               </Link>
             </li>
+            <li>
+              <Link href="/chat" className="hover:underline">
+                AI Assistant
+              </Link>
+            </li>
           </ul>
         </nav>
         {children}
